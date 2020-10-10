@@ -1,13 +1,13 @@
-package beertech.becks.legacypoc;
+package beertech.becks.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LegacypocApplication {
+public class BancoBeerServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LegacypocApplication.class, args);
+		SpringApplication.run(BancoBeerServiceApplication.class, args);
 	}
 
 }
