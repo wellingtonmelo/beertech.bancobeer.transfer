@@ -20,6 +20,7 @@ public class Transaction implements Serializable {
 	private Long id;
 
 	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "operation")
 	private TypeOperation typeOperation;
 
 	@Column(name = "value_transaction")
