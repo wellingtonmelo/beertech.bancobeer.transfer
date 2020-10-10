@@ -1,1 +1,20 @@
+server:
+  port: 8080
 
+spring:
+  jpa:
+    ddl-auto: update
+
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+        type: trace
+
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
