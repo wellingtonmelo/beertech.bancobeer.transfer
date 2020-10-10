@@ -1,0 +1,5 @@
+Transação
+ - id
+ - dataHora
+ - operacao
+ - valor
