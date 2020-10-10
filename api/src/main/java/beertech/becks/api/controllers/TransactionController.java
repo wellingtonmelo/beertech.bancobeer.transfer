@@ -21,6 +21,7 @@ public class TransactionController {
 
 	@PostMapping
 	public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
+		transaction.setId(1L);
 		Transaction persistedTransaction = repository.save(transaction);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
