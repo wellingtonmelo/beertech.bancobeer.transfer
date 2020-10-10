@@ -23,7 +23,7 @@ public final class TransactionBuilder implements Builder<Transaction> {
     }
 
     public TransactionBuilder withOperation(TypeOperation operation) {
-        this.transaction.setOperation(operation);
+        this.transaction.setTypeOperation(operation);
         return this;
     }
 
