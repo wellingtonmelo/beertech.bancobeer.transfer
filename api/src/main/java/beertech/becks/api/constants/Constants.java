@@ -6,6 +6,7 @@ public class Constants {
     public static final String STATUS_201_CREATED = "Successfully created";
     public static final String STATUS_204_NO_CONTENT = "No Content";
     public static final String STATUS_400_BAD_REQUEST = "Resource is invalid";
+    public static final String STATUS_404_NOTFOUND = "Resource not found";
     public static final String STATUS_500_INTERNAL_SERVER_ERROR = "The application has encountered an unknown error. Please try again.";
 
 }

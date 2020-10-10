@@ -2,8 +2,8 @@ package beertech.becks.api.model;
 
 public enum TypeOperation {
 
-    DEPOSITO("DEPOSITO"),
-    SAQUE("SAQUE");
+    DEPOSITO("D"),
+    SAQUE("S");
 
     private String description;
 
