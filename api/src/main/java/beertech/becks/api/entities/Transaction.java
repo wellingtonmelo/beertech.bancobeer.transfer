@@ -1,23 +1,31 @@
 package beertech.becks.api.entities;
 
-import io.swagger.annotations.ApiParam;
+import beertech.becks.api.model.TypeOperation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Transaction {
+public class Transaction implements Serializable {
+
 	@Id
-	@ApiParam(value = "Transaction Id")
 	private Long id;
-	@ApiParam(value = "Operation to be performed (Depósito)")
-	private String operation;
+
+	@Enumerated(EnumType.ORDINAL)
+	private TypeOperation typeOperation;
+
+	@Column(name = "value_transaction")
+	private BigDecimal valueTransaction;
+
+	@Column(name = "data_transaction")
+	private ZonedDateTime dateTime;
+
 }
