@@ -1,5 +1,6 @@
 package beertech.becks.api.entities;
 
+import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,8 @@ import javax.persistence.Id;
 @Entity
 public class Transaction {
 	@Id
+	@ApiParam(value = "Transaction Id")
 	private Long id;
+	@ApiParam(value = "Operation to be performed (Depósito)")
 	private String operation;
 }

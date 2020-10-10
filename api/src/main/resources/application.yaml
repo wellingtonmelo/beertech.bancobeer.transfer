@@ -17,3 +17,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: password
+
+beertech:
+  swagger:
+    baseUrl: ${SWAGGER_BASE_URL:localhost:${server.port}}
+    apiInfo: REST API for Bank Becks Service Microservice
+    apiTitle: BeerTech Bank Becks Service
