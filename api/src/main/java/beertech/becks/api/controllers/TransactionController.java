@@ -2,7 +2,6 @@ package beertech.becks.api.controllers;
 
 import beertech.becks.api.entities.Account;
 import beertech.becks.api.entities.Balance;
-import beertech.becks.api.entities.Transaction;
 import beertech.becks.api.service.TransactionService;
 import beertech.becks.api.tos.AccountRequestTO;
 import beertech.becks.api.tos.TransactionRequestTO;
