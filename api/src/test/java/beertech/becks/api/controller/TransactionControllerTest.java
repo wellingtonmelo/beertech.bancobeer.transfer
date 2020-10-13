@@ -22,12 +22,15 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.math.BigDecimal;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
@@ -61,7 +64,7 @@ public class TransactionControllerTest {
     MvcResult result =
         this.mockMvc
             .perform(
-                MockMvcRequestBuilders.post("/bank/transactions")
+                post("/bank/transactions")
                     .contentType(APPLICATION_JSON_VALUE)
                     .content(mapper.writeValueAsBytes(transactionRequest)))
             .andDo(print())
@@ -77,17 +80,17 @@ public class TransactionControllerTest {
 
     Balance balance = new Balance();
     balance.setBalance(BigDecimal.valueOf(123.5));
-    when(transactionService.getBalance("")).thenReturn(balance);
+    when(transactionService.getBalance("123")).thenReturn(balance);
 
+    String expectedResult = mapper.writeValueAsString(balance);
     MvcResult result =
         this.mockMvc
-            .perform(
-                MockMvcRequestBuilders.get("/bank/transactions").contentType(APPLICATION_JSON_VALUE))
-            .andDo(print())
+            .perform(get("/bank/balance").param("document", "123"))
             .andExpect(status().isOk())
+            .andExpect(content().string(containsString(expectedResult)))
             .andReturn();
 
-    verify(transactionService, times(1)).getBalance("");
+    verify(transactionService, times(1)).getBalance("123");
 
     String contentAsString = result.getResponse().getContentAsString();
 

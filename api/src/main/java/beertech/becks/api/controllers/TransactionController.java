@@ -58,9 +58,9 @@ public class TransactionController {
         @ApiResponse(code = 404, message = STATUS_404_NOTFOUND),
         @ApiResponse(code = 500, message = STATUS_500_INTERNAL_SERVER_ERROR)
       })
-  @GetMapping(value = "balance")
+  @GetMapping(value = "/balance")
   public ResponseEntity<Balance> getBalance(
-      @NotBlank @ApiParam(value = "Customer CPF") @RequestParam(name = "Brazilian Document") String document) {
+      @NotBlank @ApiParam(value = "Customer CPF") @RequestParam() String document) {
     Balance balance = transactionService.getBalance(document);
     return new ResponseEntity<>(balance, HttpStatus.OK);
   }
