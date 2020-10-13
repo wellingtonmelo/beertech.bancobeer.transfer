@@ -17,7 +17,7 @@ public class TransactionRequestTO {
   /** The operation value */
   private BigDecimal value;
 
-  @NotBlank private String accountDocument;
+  private String accountDocument;
 
   private String fromAccountDocument;
 
