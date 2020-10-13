@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /** The configuration class for our rabbit queue */
@@ -16,7 +15,6 @@ public class RabbitConfiguration {
   @Value("${spring.rabbitmq.queues}")
   private List<String> queues;
 
-  private String transferQueue;
   /**
    * The jackson converter to convert json messages into objects
    *
@@ -29,8 +27,6 @@ public class RabbitConfiguration {
 
   @Bean
   public List<String> queueNames() {
-    List<String> queueNames = queues;
-
-    return queueNames;
+    return queues;
   }
 }
