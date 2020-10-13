@@ -6,5 +6,5 @@ import beertech.becks.consumer.tos.Message;
  * Interface describing the consumer services
  */
 public interface ConsumerService {
-	void treatMessage(Message message);
+	void processMessage(Message message);
 }

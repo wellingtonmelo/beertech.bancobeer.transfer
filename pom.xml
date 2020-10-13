@@ -11,6 +11,7 @@
 	<modules>
 		<module>consumer</module>
 		<module>api</module>
-	</modules>
+        <module>relay</module>
+    </modules>
 
 </project>

@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+amqp:
+  exchange: banco-beer-exchange
+  queue: bank-transfer
+  routeKey: transfer
+
+beertech:
+  swagger:
+    baseUrl: ${SWAGGER_BASE_URL:localhost:${server.port}}
+    apiInfo: REST API for Bank Becks Service Microservice
+    apiTitle: BeerTech Bank Becks Service

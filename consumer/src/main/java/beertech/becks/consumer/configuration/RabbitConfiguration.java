@@ -2,22 +2,35 @@ package beertech.becks.consumer.configuration;
 
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * The configuration class for our rabbit queue
- */
+import java.util.ArrayList;
+import java.util.List;
+
+/** The configuration class for our rabbit queue */
 @Configuration
 public class RabbitConfiguration {
 
-	/**
-	 * The jackson converter to convert json messages into objects
-	 * 
-	 * @return a Jackson2JsonMessageConverter instance
-	 */
-	@Bean
-	MessageConverter jacksonConverter() {
-		return new Jackson2JsonMessageConverter();
-	}
+  @Value("${spring.rabbitmq.queues}")
+  private List<String> queues;
+
+  private String transferQueue;
+  /**
+   * The jackson converter to convert json messages into objects
+   *
+   * @return a Jackson2JsonMessageConverter instance
+   */
+  @Bean
+  MessageConverter jacksonConverter() {
+    return new Jackson2JsonMessageConverter();
+  }
+
+  @Bean
+  public List<String> queueNames() {
+    List<String> queueNames = queues;
+
+    return queueNames;
+  }
 }

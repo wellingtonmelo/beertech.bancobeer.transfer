@@ -20,6 +20,9 @@ public class Transaction implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@Column(name = "account_document")
+	private String accountDocument;
+
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "operation")
 	private TypeOperation typeOperation;
